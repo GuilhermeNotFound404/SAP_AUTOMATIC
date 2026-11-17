@@ -19,13 +19,15 @@ internal static class Program
             case ["--testar", var resultPath]:
                 OrderRules.RunSelfTests();
                 OperationJournal.RunSelfTests();
+                SheetSync.RunSelfTests();
+                BatchEquipment.RunSelfTests();
                 File.WriteAllText(resultPath, "OK");
                 return 0;
             case ["--verificar-interface", var markerPath]:
                 try
                 {
                     ApplicationConfiguration.Initialize();
-                    using var form = new MainForm(new LocalSettings(), null);
+                    using var form = new MainForm(new LocalSettings(), null, syncOnLaunch: false);
                     form.TestClassification();
                     form.Shown += (_, _) => form.BeginInvoke(form.Close);
                     Application.Run(form);
@@ -79,6 +81,8 @@ internal sealed class OperationDefaults
     public string Centro { get; init; } = "";
     public string TipoOrdem { get; init; } = "";
     public string Empresa { get; init; } = "";
+    public string StatusPlanilha { get; init; } = "Aberta";
+    public string TipoPlanilha { get; init; } = "Serviço";
     public string GrupoCompras { get; init; } = "";
     public string OrganizacaoCompras { get; init; } = "";
     public string Fornecedor { get; init; } = "";
