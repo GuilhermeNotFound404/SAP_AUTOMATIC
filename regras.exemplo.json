@@ -1,0 +1,21 @@
+{
+  "prefixoEquipamento": "",
+  "regras": [
+    {
+      "matchPhrase": "substituição de retrovisor",
+      "route": "PartRequest",
+      "priority": 10,
+      "damage": "Retrovisor danificado",
+      "collectionType": "Recolhimento demonstrativo"
+    },
+    {
+      "matchPhrase": "inspeção visual",
+      "route": "ServiceOrder",
+      "priority": 10,
+      "damage": "A confirmar na inspeção"
+    }
+  ],
+  "padroes": {
+    "ServiceOrderAndRequest": { "quantidade": "1" }
+  }
+}

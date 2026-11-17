@@ -1,0 +1,16 @@
+{
+  "sistema": "QAS",
+  "mandante": "000",
+  "operacoes": {
+    "ordem": {
+      "transacao": "IW31",
+      "passos": [
+        { "acao": "texto", "id": "wnd[0]/usr/ctxtSUBSTITUA_ID_DO_EQUIPAMENTO", "valor": "{{equipamento}}" },
+        { "acao": "salvar" }
+      ],
+      "mensagemClasse": "SUBSTITUA_CLASSE",
+      "mensagemNumero": "000",
+      "numeroRegex": "(?<![0-9])(?<numero>[0-9]{11})(?![0-9])"
+    }
+  }
+}
